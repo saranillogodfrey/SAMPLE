@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good News in Every Month 2025</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #001a33;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><text x="50" y="50" font-size="30" fill="white" opacity="0.3">🎆</text><text x="150" y="100" font-size="25" fill="white" opacity="0.2">✨</text><text x="100" y="150" font-size="35" fill="white" opacity="0.25">🎇</text><text x="20" y="120" font-size="28" fill="white" opacity="0.3">💫</text><text x="170" y="40" font-size="32" fill="white" opacity="0.2">⭐</text><text x="80" y="80" font-size="26" fill="white" opacity="0.25">🌟</text></svg>');
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.15;
+    animation: fireworksBackground 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes fireworksBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Small Fireworks Animation */
+@keyframes firework {
+    0% {
+        transform: translate(0, 100vh) scale(0);
+        opacity: 1;
+    }
+    10% {
+        transform: translate(var(--x), var(--y)) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fireworks Container */
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    border-radius: 50%;
+    animation: firework 2s ease-out infinite;
+}
+
+.firework::before,
+.firework::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ffeb3b 0%, transparent 70%);
+    border-radius: 50%;
+    animation: sparkle 1s ease-out infinite;
+}
+
+.firework::before {
+    top: -10px;
+    left: -10px;
+}
+
+.firework::after {
+    top: 10px;
+    left: 10px;
+}
+
+/* Generate random fireworks */
+.firework:nth-child(1) { --x: 20vw; --y: 30vh; left: 10%; animation-delay: 0s; background: radial-gradient(circle, #ff6b6b 0%, transparent 70%); }
+.firework:nth-child(2) { --x: -15vw; --y: 40vh; left: 80%; animation-delay: 0.5s; background: radial-gradient(circle, #4ecdc4 0%, transparent 70%); }
+.firework:nth-child(3) { --x: 25vw; --y: 25vh; left: 30%; animation-delay: 1s; background: radial-gradient(circle, #45b7d1 0%, transparent 70%); }
+.firework:nth-child(4) { --x: -20vw; --y: 35vh; left: 60%; animation-delay: 1.5s; background: radial-gradient(circle, #f9ca24 0%, transparent 70%); }
+.firework:nth-child(5) { --x: 15vw; --y: 45vh; left: 45%; animation-delay: 2s; background: radial-gradient(circle, #ff9ff3 0%, transparent 70%); }
+.firework:nth-child(6) { --x: -25vw; --y: 20vh; left: 70%; animation-delay: 2.5s; background: radial-gradient(circle, #54a0ff 0%, transparent 70%); }
+.firework:nth-child(7) { --x: 30vw; --y: 50vh; left: 25%; animation-delay: 3s; background: radial-gradient(circle, #48dbfb 0%, transparent 70%); }
+.firework:nth-child(8) { --x: -10vw; --y: 30vh; left: 85%; animation-delay: 3.5s; background: radial-gradient(circle, #00d2d3 0%, transparent 70%); }
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: slideDown 0.8s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* News Container */
+.news-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.month-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.month-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.month-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.month-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.month-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.news-list {
+    list-style: none;
+}
+
+.news-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item:hover {
+    padding-left: 10px;
+    background: rgba(102, 126, 234, 0.1);
+    margin: 0 -10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}
+
+.news-category {
+    display: inline-block;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.news-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.news-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.news-date {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.news-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.news-item:hover .news-icon {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .month-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .month-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        margin: 10px;
+        padding: 30px 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .month-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .news-container {
+        padding: 10px;
+    }
+    
+    .news-title {
+        font-size: 0.95rem;
+    }
+    
+    .news-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* News animation */
+@keyframes newsPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.news-item:hover .news-icon {
+    animation: newsPulse 1s infinite;
+}
+
+/* Category colors */
+.news-item:nth-child(1) .news-category { background: linear-gradient(45deg, #ff6b6b, #ff8787); }
+.news-item:nth-child(2) .news-category { background: linear-gradient(45deg, #4ecdc4, #44a3aa); }
+.news-item:nth-child(3) .news-category { background: linear-gradient(45deg, #45b7d1, #3498db); }
+.news-item:nth-child(4) .news-category { background: linear-gradient(45deg, #f9ca24, #f0b90b); }
+.news-item:nth-child(5) .news-category { background: linear-gradient(45deg, #6c5ce7, #5f4bb6); }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Small Fireworks Background -->
+    <div class="fireworks">
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+    </div>
+
+    <header class="header">
+        <h1>📰 Good News in Every Month 2025 📰</h1>
+        <p>Discover the positive stories and breakthrough events shaping 2025</p>
+        <a href="index.html" class="back-button">← Back to Countdown</a>
+    </header>
+
+    <div class="news-container">
+        <div class="month-grid">
+            <!-- January 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">❄️</span>
+                    <h2 class="month-name">January 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Science</span>
+                        <div class="news-title">Major Breakthrough in Fusion Energy</div>
+                        <div class="news-description">Scientists achieve sustained fusion reaction for 10 minutes, marking a historic milestone in clean energy development.</div>
+                        <div class="news-date">January 15, 2025</div>
+                        <span class="news-icon">🔬</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">New Alzheimer's Treatment Shows Promise</div>
+                        <div class="news-description">Revolutionary drug demonstrates significant improvement in cognitive function for early-stage patients.</div>
+                        <div class="news-date">January 22, 2025</div>
+                        <span class="news-icon">🏥</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Global Reforestation Initiative Exceeds Goals</div>
+                        <div class="news-description">International coalition plants 500 million trees, surpassing ambitious climate targets.</div>
+                        <div class="news-date">January 28, 2025</div>
+                        <span class="news-icon">🌳</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">Quantum Computer Solves Complex Medical Problem</div>
+                        <div class="news-description">New quantum system successfully models protein folding for drug development.</div>
+                        <div class="news-date">January 10, 2025</div>
+                        <span class="news-icon">💻</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Education</span>
+                        <div class="news-title">Global Literacy Rate Reaches All-Time High</div>
+                        <div class="news-description">UN reports 87% global literacy achievement, the highest in recorded history.</div>
+                        <div class="news-date">January 5, 2025</div>
+                        <span class="news-icon">📚</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- February 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">💝</span>
+                    <h2 class="month-name">February 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">Mars Colony Launch Preparation Begins</div>
+                        <div class="news-description">Space agencies finalize plans for first permanent human settlement on Mars by 2030.</div>
+                        <div class="news-date">February 3, 2025</div>
+                        <span class="news-icon">🚀</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Medicine</span>
+                        <div class="news-title">Revolutionary Cancer Vaccine Approved</div>
+                        <div class="news-description">Personalized cancer vaccine shows 90% success rate in clinical trials.</div>
+                        <div class="news-date">February 14, 2025</div>
+                        <span class="news-icon">💊</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Ocean Cleanup Project Removes 1 Million Tons</div>
+                        <div class="news-description">Innovative ocean cleanup systems successfully remove plastic from major currents.</div>
+                        <div class="news-date">February 20, 2025</div>
+                        <span class="news-icon">🌊</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">AI</span>
+                        <div class="news-title">AI Develops New Sustainable Materials</div>
+                        <div class="news-description">Artificial intelligence discovers biodegradable alternatives to plastics.</div>
+                        <div class="news-date">February 8, 2025</div>
+                        <span class="news-icon">🤖</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Social</span>
+                        <div class="news-title">Global Poverty Reduction Hits Milestone</div>
+                        <div class="news-description">World Bank reports 10% reduction in extreme poverty levels worldwide.</div>
+                        <div class="news-date">February 25, 2025</div>
+                        <span class="news-icon">🤝</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- March 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌸</span>
+                    <h2 class="month-name">March 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Energy</span>
+                        <div class="news-title">Solar Power Becomes World's Cheapest Energy</div>
+                        <div class="news-description">Solar energy costs drop below fossil fuels globally, accelerating renewable transition.</div>
+                        <div class="news-date">March 1, 2025</div>
+                        <span class="news-icon">☀️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">Universal Healthcare Coverage Expands</div>
+                        <div class="news-description">20 additional countries achieve universal healthcare access for citizens.</div>
+                        <div class="news-date">March 12, 2025</div>
+                        <span class="news-icon">🏥</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">6G Network Testing Begins Worldwide</div>
+                        <div class="news-description">Next-generation wireless technology promises 100x faster speeds than 5G.</div>
+                        <div class="news-date">March 18, 2025</div>
+                        <span class="news-icon">📡</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Wildlife</span>
+                        <div class="news-title">Endangered Species Make Remarkable Recovery</div>
+                        <div class="news-description">Conservation efforts lead to population increase for 50 endangered species.</div>
+                        <div class="news-date">March 24, 2025</div>
+                        <span class="news-icon">🦁</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Innovation</span>
+                        <div class="news-title">Breakthrough in Water Purification Technology</div>
+                        <div class="news-description">New solar-powered desalination system provides clean water to 10 million people.</div>
+                        <div class="news-date">March 7, 2025</div>
+                        <span class="news-icon">💧</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- April 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌷</span>
+                    <h2 class="month-name">April 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">New Earth-Like Planet Discovered</div>
+                        <div class="news-description">Astronomers find potentially habitable planet just 40 light-years away.</div>
+                        <div class="news-date">April 5, 2025</div>
+                        <span class="news-icon">🌍</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Medicine</span>
+                        <div class="news-title">Gene Therapy Cures Rare Genetic Disease</div>
+                        <div class="news-description">Successful treatment offers hope for thousands with similar conditions.</div>
+                        <div class="news-date">April 16, 2025</div>
+                        <span class="news-icon">🧬</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Climate</span>
+                        <div class="news-title">Carbon Capture Technology Reaches Scale</div>
+                        <div class="news-description">New facilities remove 100,000 tons of CO2 daily from atmosphere.</div>
+                        <div class="news-date">April 22, 2025</div>
+                        <span class="news-icon">🌱</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Education</span>
+                        <div class="news-title">Free Online Education Platform Launches Globally</div>
+                        <div class="news-description">UN-supported platform offers courses in 100 languages to 50 million users.</div>
+                        <div class="news-date">April 10, 2025</div>
+                        <span class="news-icon">🎓</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">AI System Predicts Natural Disasters</div>
+                        <div class="news-description">Machine learning model provides 72-hour advance warning for earthquakes.</div>
+                        <div class="news-date">April 28, 2025</div>
+                        <span class="news-icon">⚡</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- May 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌺</span>
+                    <h2 class="month-name">May 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Transportation</span>
+                        <div class="news-title">Electric Vehicles Outnumber Gas Cars</div>
+                        <div class="news-description">Global EV sales surpass traditional vehicles for the first time in history.</div>
+                        <div class="news-date">May 3, 2025</div>
+                        <span class="news-icon">🚗</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">Revolutionary Anti-Aging Treatment Developed</div>
+                        <div class="news-description">Scientists extend cellular lifespan by 30% in human trials.</div>
+                        <div class="news-date">May 15, 2025</div>
+                        <span class="news-icon">⏰</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Agriculture</span>
+                        <div class="news-title">Drought-Resistant Crops Feed Millions</div>
+                        <div class="news-description">Genetically modified crops thrive in desert conditions, solving food shortages.</div>
+                        <div class="news-date">May 21, 2025</div>
+                        <span class="news-icon">🌾</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">Brain-Computer Interface Helps Paralyzed Patients Walk</div>
+                        <div class="news-description">Revolutionary technology restores mobility to spinal injury patients.</div>
+                        <div class="news-date">May 9, 2025</div>
+                        <span class="news-icon">🧠</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Arctic Ice Shows Signs of Recovery</div>
+                        <div class="news-description">Scientific data indicates slowing of ice loss for first time in decades.</div>
+                        <div class="news-date">May 25, 2025</div>
+                        <span class="news-icon">🧊</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- June 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">☀️</span>
+                    <h2 class="month-name">June 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Energy</span>
+                        <div class="news-title">Fusion Power Plant Achieves Net Energy Gain</div>
+                        <div class="news-description">First commercial fusion facility produces more energy than it consumes.</div>
+                        <div class="news-date">June 1, 2025</div>
+                        <span class="news-icon">⚛️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">HIV Functional Cure Developed</div>
+                        <div class="news-description">New treatment eliminates virus reservoirs in 95% of patients.</div>
+                        <div class="news-date">June 12, 2025</div>
+                        <span class="news-icon">❤️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Ocean</span>
+                        <div class="news-title">Coral Reef Restoration Success</div>
+                        <div class="news-description">50% of damaged coral reefs show significant recovery due to conservation efforts.</div>
+                        <div class="news-date">June 18, 2025</div>
+                        <span class="news-icon">🐠</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">AI</span>
+                        <div class="news-title">AI Discovers New Antibiotics</div>
+                        <div class="news-description">Machine learning identifies new compounds effective against superbugs.</div>
+                        <div class="news-date">June 6, 2025</div>
+                        <span class="news-icon">🔍</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">Moon Base Construction Begins</div>
+                        <div class="news-description">International partnership launches materials for permanent lunar settlement.</div>
+                        <div class="news-date">June 24, 2025</div>
+                        <span class="news-icon">🌙</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- July 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🎆</span>
+                    <h2 class="month-name">July 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">Quantum Internet Achieves Global Connectivity</div>
+                        <div class="news-description">Unhackable communication network connects continents via quantum satellites.</div>
+                        <div class="news-date">July 3, 2025</div>
+                        <span class="news-icon">🛰️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Medicine</span>
+                        <div class="news-title">Personalized Medicine Becomes Standard</div>
+                        <div class="news-description">DNA-based treatments available for 80% of common diseases.</div>
+                        <div class="news-date">July 15, 2025</div>
+                        <span class="news-icon">🧪</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Plastic Pollution Halved Worldwide</div>
+                        <div class="news-description">Global initiatives reduce ocean plastic by 50% from 2020 levels.</div>
+                        <div class="news-date">July 21, 2025</div>
+                        <span class="news-icon">♻️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Energy</span>
+                        <div class="news-title">Hydrogen Fuel Stations Go Global</div>
+                        <div class="news-description">Clean hydrogen infrastructure established in 100 countries.</div>
+                        <div class="news-date">July 9, 2025</div>
+                        <span class="news-icon">⛽</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Education</span>
+                        <div class="news-title">Virtual Reality Classrooms Transform Learning</div>
+                        <div class="news-description">100 million students access immersive education experiences globally.</div>
+                        <div class="news-date">July 27, 2025</div>
+                        <span class="news-icon">🥽</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- August 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌻</span>
+                    <h2 class="month-name">August 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">Mars Sample Return Mission Success</div>
+                        <div class="news-description">First Martian soil samples arrive on Earth with signs of ancient life.</div>
+                        <div class="news-date">August 5, 2025</div>
+                        <span class="news-icon">🔴</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">Universal Flu Vaccine Developed</div>
+                        <div class="news-description">Single vaccine provides lifetime protection against all flu strains.</div>
+                        <div class="news-date">August 16, 2025</div>
+                        <span class="news-icon">💉</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">Neural Interface Translates Brain Signals to Speech</div>
+                        <div class="news-description">Breakthrough technology helps mute patients communicate naturally.</div>
+                        <div class="news-date">August 12, 2025</div>
+                        <span class="news-icon">🗣️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Deforestation Reversal in Amazon</div>
+                        <div class="news-description">Amazon rainforest shows net growth for first time in 50 years.</div>
+                        <div class="news-date">August 22, 2025</div>
+                        <span class="news-icon">🌴</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Innovation</span>
+                        <div class="news-title">Self-Driving Cars Accident-Free for 1 Billion Miles</div>
+                        <div class="news-description">Autonomous vehicle fleet reaches unprecedented safety milestone.</div>
+                        <div class="news-date">August 28, 2025</div>
+                        <span class="news-icon">🚕</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- September 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🍂</span>
+                    <h2 class="month-name">September 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Energy</span>
+                        <div class="news-title">Renewable Energy Powers Half the World</div>
+                        <div class="news-description">50% of global electricity now comes from renewable sources.</div>
+                        <div class="news-date">September 1, 2025</div>
+                        <span class="news-icon">🌍</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">Diabetes Cure Found for Type 2</div>
+                        <div class="news-description">Revolutionary treatment reverses type 2 diabetes in 85% of patients.</div>
+                        <div class="news-date">September 14, 2025</div>
+                        <span class="news-icon">🩺</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">AI Creates New Musical Masterpieces</div>
+                        <div class="news-description">Artificial intelligence composes music indistinguishable from human composers.</div>
+                        <div class="news-date">September 9, 2025</div>
+                        <span class="news-icon">🎵</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Climate</span>
+                        <div class="news-title">Global Temperature Rise Slows Dramatically</div>
+                        <div class="news-description">Climate initiatives successfully reduce warming trend by 40%.</div>
+                        <div class="news-date">September 20, 2025</div>
+                        <span class="news-icon">🌡️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">Asteroid Mining Becomes Profitable</div>
+                        <div class="news-description">First commercial asteroid mining operation returns valuable minerals.</div>
+                        <div class="news-date">September 25, 2025</div>
+                        <span class="news-icon">☄️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- October 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🎃</span>
+                    <h2 class="month-name">October 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">Quantum Computer Solves Climate Change Model</div>
+                        <div class="news-description">Quantum computing provides breakthrough solutions for climate mitigation.</div>
+                        <div class="news-date">October 3, 2025</div>
+                        <span class="news-icon">💻</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Medicine</span>
+                        <div class="news-title">Artificial Organs Grown in Lab</div>
+                        <div class="news-description">First fully functional human heart grown from patient's own cells.</div>
+                        <div class="news-date">October 16, 2025</div>
+                        <span class="news-icon">❤️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Ocean Acidification Reversed</div>
+                        <div class="news-description">Marine ecosystems show recovery as ocean pH levels normalize.</div>
+                        <div class="news-date">October 12, 2025</div>
+                        <span class="news-icon">🦀</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">Europa Mission Finds Subsurface Ocean Life</div>
+                        <div class="news-description">Jupiter's moon Europa confirmed to host microbial life forms.</div>
+                        <div class="news-date">October 22, 2025</div>
+                        <span class="news-icon">🛸</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Energy</span>
+                        <div class="news-title">Wireless Electricity Transmission Achieved</div>
+                        <div class="news-description">Successful test sends electricity wirelessly across 1000 miles.</div>
+                        <div class="news-date">October 28, 2025</div>
+                        <span class="news-icon">⚡</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- November 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🍁</span>
+                    <h2 class="month-name">November 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">AI</span>
+                        <div class="news-title">AI Achieves Human-Level Creativity</div>
+                        <div class="news-description">Artificial intelligence passes advanced creativity and emotional intelligence tests.</div>
+                        <div class="news-date">November 5, 2025</div>
+                        <span class="news-icon">🎨</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">Cancer Becomes Curable Disease</div>
+                        <div class="news-description">New treatment combination eliminates 95% of cancers in early stages.</div>
+                        <div class="news-date">November 15, 2025</div>
+                        <span class="news-icon">🎗️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Transportation</span>
+                        <div class="news-title">Hyperloop Network Connects Major Cities</div>
+                        <div class="news-description">High-speed transport system reduces travel time between cities by 90%.</div>
+                        <div class="news-date">November 10, 2025</div>
+                        <span class="news-icon">🚄</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Environment</span>
+                        <div class="news-title">Global Carbon Emissions Turn Negative</div>
+                        <div class="news-description">World removes more CO2 than produces for first time in industrial era.</div>
+                        <div class="news-date">November 20, 2025</div>
+                        <span class="news-icon">🌿</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">First Baby Born in Space</div>
+                        <div class="news-description">Historic birth marks new era of human space colonization.</div>
+                        <div class="news-date">November 25, 2025</div>
+                        <span class="news-icon">👶</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- December 2025 -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🎄</span>
+                    <h2 class="month-name">December 2025</h2>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-category">Technology</span>
+                        <div class="news-title">Brain Upload Technology Demonstrated</div>
+                        <div class="news-description">Scientists successfully transfer consciousness to digital format.</div>
+                        <div class="news-date">December 1, 2025</div>
+                        <span class="news-icon">💾</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Health</span>
+                        <div class="news-title">Aging Process Reversed in Humans</div>
+                        <div class="news-description">Clinical trials show biological age reduction of 20 years possible.</div>
+                        <div class="news-date">December 10, 2025</div>
+                        <span class="news-icon">⏳</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Energy</span>
+                        <div class="news-title">Free Energy Device Invented</div>
+                        <div class="news-description">Revolutionary device generates unlimited clean energy from quantum vacuum.</div>
+                        <div class="news-date">December 15, 2025</div>
+                        <span class="news-icon">♾️</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Space</span>
+                        <div class="news-title">First Contact with Alien Civilization</div>
+                        <div class="news-description">SETI project confirms receipt of intelligent extraterrestrial signal.</div>
+                        <div class="news-date">December 20, 2025</div>
+                        <span class="news-icon">👽</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-category">Humanity</span>
+                        <div class="news-title">Global Peace Achieved - No Wars in 2025</div>
+                        <div class="news-description">First year in recorded history with zero armed conflicts worldwide.</div>
+                        <div class="news-date">December 25, 2025</div>
+                        <span class="news-icon">🕊️</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive effects to news items
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsItems = document.querySelectorAll('.news-item');
+            
+            newsItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Simulate reading animation
+                    const icon = item.querySelector('.news-icon');
+                    icon.textContent = '📖';
+                    
+                    setTimeout(() => {
+                        icon.textContent = '✅';
+                    }, 1500);
+                    
+                    setTimeout(() => {
+                        icon.textContent = icon.textContent.replace('✅', '');
+                    }, 3000);
+                    
+                    // Add a subtle animation
+                    item.style.animation = 'newsPulse 0.5s ease';
+                    setTimeout(() => {
+                        item.style.animation = '';
+                    }, 500);
+                });
+            });
+            
+            // Add staggered animation to month cards
+            const monthCards = document.querySelectorAll('.month-card');
+            monthCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

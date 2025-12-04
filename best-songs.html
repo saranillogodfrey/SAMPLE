@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Songs in Every Month</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #001a33;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><text x="50" y="50" font-size="30" fill="white" opacity="0.3">🎆</text><text x="150" y="100" font-size="25" fill="white" opacity="0.2">✨</text><text x="100" y="150" font-size="35" fill="white" opacity="0.25">🎇</text><text x="20" y="120" font-size="28" fill="white" opacity="0.3">💫</text><text x="170" y="40" font-size="32" fill="white" opacity="0.2">⭐</text><text x="80" y="80" font-size="26" fill="white" opacity="0.25">🌟</text></svg>');
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.15;
+    animation: fireworksBackground 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes fireworksBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Small Fireworks Animation */
+@keyframes firework {
+    0% {
+        transform: translate(0, 100vh) scale(0);
+        opacity: 1;
+    }
+    10% {
+        transform: translate(var(--x), var(--y)) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fireworks Container */
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    border-radius: 50%;
+    animation: firework 2s ease-out infinite;
+}
+
+.firework::before,
+.firework::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ffeb3b 0%, transparent 70%);
+    border-radius: 50%;
+    animation: sparkle 1s ease-out infinite;
+}
+
+.firework::before {
+    top: -10px;
+    left: -10px;
+}
+
+.firework::after {
+    top: 10px;
+    left: 10px;
+}
+
+/* Generate random fireworks */
+.firework:nth-child(1) { --x: 20vw; --y: 30vh; left: 10%; animation-delay: 0s; background: radial-gradient(circle, #ff6b6b 0%, transparent 70%); }
+.firework:nth-child(2) { --x: -15vw; --y: 40vh; left: 80%; animation-delay: 0.5s; background: radial-gradient(circle, #4ecdc4 0%, transparent 70%); }
+.firework:nth-child(3) { --x: 25vw; --y: 25vh; left: 30%; animation-delay: 1s; background: radial-gradient(circle, #45b7d1 0%, transparent 70%); }
+.firework:nth-child(4) { --x: -20vw; --y: 35vh; left: 60%; animation-delay: 1.5s; background: radial-gradient(circle, #f9ca24 0%, transparent 70%); }
+.firework:nth-child(5) { --x: 15vw; --y: 45vh; left: 45%; animation-delay: 2s; background: radial-gradient(circle, #ff9ff3 0%, transparent 70%); }
+.firework:nth-child(6) { --x: -25vw; --y: 20vh; left: 70%; animation-delay: 2.5s; background: radial-gradient(circle, #54a0ff 0%, transparent 70%); }
+.firework:nth-child(7) { --x: 30vw; --y: 50vh; left: 25%; animation-delay: 3s; background: radial-gradient(circle, #48dbfb 0%, transparent 70%); }
+.firework:nth-child(8) { --x: -10vw; --y: 30vh; left: 85%; animation-delay: 3.5s; background: radial-gradient(circle, #00d2d3 0%, transparent 70%); }
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: slideDown 0.8s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Songs Grid */
+.songs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.month-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.month-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.month-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.month-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.month-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #45b7d1, #f9ca24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.song-list {
+    list-style: none;
+}
+
+.song-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.song-item:last-child {
+    border-bottom: none;
+}
+
+.song-item:hover {
+    padding-left: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0 -10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}
+
+.song-rank {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.song-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.song-artist {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-left: 37px;
+}
+
+.play-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.song-item:hover .play-icon {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .month-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .month-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        margin: 10px;
+        padding: 30px 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .month-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .songs-container {
+        padding: 10px;
+    }
+}
+
+/* Music animation */
+@keyframes musicPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.song-item:hover .play-icon {
+    animation: musicPulse 1s infinite;
+}
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Small Fireworks Background -->
+    <div class="fireworks">
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+    </div>
+
+    <header class="header">
+        <h1>🎵 Best Songs in Every Month 🎵</h1>
+        <p>Discover the greatest hits that defined each month of the year</p>
+        <a href="index.html" class="back-button">← Back to Countdown</a>
+    </header>
+
+    <div class="songs-container">
+        <div class="month-grid">
+            <!-- January -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">❄️</span>
+                    <h2 class="month-name">January</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">New Year's Day</div>
+                        <div class="song-artist">U2</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Winter Wonderland</div>
+                        <div class="song-artist">Eurythmics</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">January</div>
+                        <div class="song-artist">Pilot</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">Auld Lang Syne</div>
+                        <div class="song-artist">Traditional</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">Blue Monday</div>
+                        <div class="song-artist">New Order</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- February -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">💝</span>
+                    <h2 class="month-name">February</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">My Funny Valentine</div>
+                        <div class="song-artist">Chet Baker</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Love Song</div>
+                        <div class="song-artist">Sara Bareilles</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">February Song</div>
+                        <div class="song-artist">Josh Groban</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">All You Need Is Love</div>
+                        <div class="song-artist">The Beatles</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">February Air</div>
+                        <div class="song-artist">Lights</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- March -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌸</span>
+                    <h2 class="month-name">March</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">Marching On</div>
+                        <div class="song-artist">OneRepublic</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Spring Day</div>
+                        <div class="song-artist">BTS</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">The March of the Black Queen</div>
+                        <div class="song-artist">Queen</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">March of the Pigs</div>
+                        <div class="song-artist">Nine Inch Nails</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">Here Comes the Sun</div>
+                        <div class="song-artist">The Beatles</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- April -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌷</span>
+                    <h2 class="month-name">April</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">April Showers</div>
+                        <div class="song-artist">Producers</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">April in Paris</div>
+                        <div class="song-artist">Count Basie</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">April Fool</div>
+                        <div class="song-artist">Joni Mitchell</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">I Love You Always Forever</div>
+                        <div class="song-artist">Donna Lewis</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">April 29, 1992</div>
+                        <div class="song-artist">Sublime</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- May -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌺</span>
+                    <h2 class="month-name">May</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">May We All</div>
+                        <div class="song-artist">Florida Georgia Line</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Crazy Little Thing Called Love</div>
+                        <div class="song-artist">Queen</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">First of May</div>
+                        <div class="song-artist">Bee Gees</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">May It Be</div>
+                        <div class="song-artist">Enya</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">Mayonaka no Door</div>
+                        <div class="song-artist">Miki Matsubara</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- June -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">☀️</span>
+                    <h2 class="month-name">June</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">June Hymn</div>
+                        <div class="song-artist">The Decemberists</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Summer Breeze</div>
+                        <div class="song-artist">Seals and Crofts</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">June in January</div>
+                        <div class="song-artist">Bing Crosby</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">California Gurls</div>
+                        <div class="song-artist">Katy Perry</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">June</div>
+                        <div class="song-artist">Tobacco</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- July -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🎆</span>
+                    <h2 class="month-name">July</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">July Morning</div>
+                        <div class="song-artist">Uriah Heep</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Fourth of July</div>
+                        <div class="song-artist">Amy Winehouse</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">Summer of '69</div>
+                        <div class="song-artist">Bryan Adams</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">July, July!</div>
+                        <div class="song-artist">The Decemberists</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">Hot Hot Hot</div>
+                        <div class="song-artist">Buster Poindexter</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- August -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🌻</span>
+                    <h2 class="month-name">August</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">August</div>
+                        <div class="song-artist">Taylor Swift</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">August Rush</div>
+                        <div class="song-artist">Kaká</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">August and Everything After</div>
+                        <div class="song-artist">Counting Crows</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">Summer Wind</div>
+                        <div class="song-artist">Frank Sinatra</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">In August</div>
+                        <div class="song-artist">Leonard Cohen</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- September -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🍂</span>
+                    <h2 class="month-name">September</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">September</div>
+                        <div class="song-artist">Earth, Wind & Fire</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Wake Me Up When September Ends</div>
+                        <div class="song-artist">Green Day</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">See You in September</div>
+                        <div class="song-artist">The Happenings</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">September Song</div>
+                        <div class="song-artist">Frank Sinatra</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">September When I First Met You</div>
+                        <div class="song-artist">Damien Rice</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- October -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🎃</span>
+                    <h2 class="month-name">October</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">October</div>
+                        <div class="song-artist">U2</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">Monster Mash</div>
+                        <div class="song-artist">Bobby Pickett</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">Thriller</div>
+                        <div class="song-artist">Michael Jackson</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">Autumn Leaves</div>
+                        <div class="song-artist">Nat King Cole</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">Time of the Season</div>
+                        <div class="song-artist">The Zombies</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- November -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🍁</span>
+                    <h2 class="month-name">November</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">November Rain</div>
+                        <div class="song-artist">Guns N' Roses</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">November</div>
+                        <div class="song-artist">Tom Waits</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">The November</div>
+                        <div class="song-artist">Rachael Yamagata</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-title">Back to December</div>
+                        <div class="song-artist">Taylor Swift</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">November</div>
+                        <div class="song-artist">Max Richter</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- December -->
+            <div class="month-card">
+                <div class="month-header">
+                    <span class="month-icon">🎄</span>
+                    <h2 class="month-name">December</h2>
+                </div>
+                <ul class="song-list">
+                    <li class="song-item">
+                        <span class="song-rank">1</span>
+                        <div class="song-title">December, 1963</div>
+                        <div class="song-artist">The Four Seasons</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">2</span>
+                        <div class="song-title">A December to Remember</div>
+                        <div class="song-artist">Relient K</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">3</span>
+                        <div class="song-title">December</div>
+                        <div class="song-artist">Collective Soul</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">4</span>
+                        <div class="song-artist">Joni Mitchell</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                    <li class="song-item">
+                        <span class="song-rank">5</span>
+                        <div class="song-title">Last December</div>
+                        <div class="song-artist">Taylor Swift</div>
+                        <span class="play-icon">▶️</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive effects to song items
+        document.addEventListener('DOMContentLoaded', () => {
+            const songItems = document.querySelectorAll('.song-item');
+            
+            songItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Simulate play action
+                    const playIcon = item.querySelector('.play-icon');
+                    playIcon.textContent = '⏸️';
+                    
+                    setTimeout(() => {
+                        playIcon.textContent = '▶️';
+                    }, 2000);
+                    
+                    // Add a subtle animation
+                    item.style.animation = 'musicPulse 0.5s ease';
+                    setTimeout(() => {
+                        item.style.animation = '';
+                    }, 500);
+                });
+            });
+            
+            // Add staggered animation to month cards
+            const monthCards = document.querySelectorAll('.month-card');
+            monthCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
